@@ -1,66 +1,88 @@
 /* 
  * Square
 */
-console.group("Square");
-
-const sideSquare = 5;
+function getSideSquareValue() {
+    const input = document.getElementById("side-square");
+    return input.value;
+}
 
 function perimeterSquare(sideSquare) {
     return sideSquare * 4;
 }
-console.log(`Perimeter of the square is ${ perimeterSquare(sideSquare) } cm`);
 
 function areaSquare(sideSquare) {
     return sideSquare * sideSquare;
 }
-console.log(`Area of the square is ${ areaSquare(sideSquare) } cm^2`);
 
-console.groupEnd();
+function calculatePerimeterSquare() {
+    alert(`Perimeter of the square is ${ perimeterSquare(getSideSquareValue()) } cm`);
+}
+
+function calculateAreaSquare() {
+        alert(`Area of the square is ${ areaSquare(getSideSquareValue()) } cm^2`);
+}
+
 /*
  * Triangle
 */
-console.group("Triangle");
-
-const sideOneTriangle = 6;
-const sideTwoTriangle = 6;
-const sideThreeTriangle = 4;
-const heightTriangle = 5.5;
-
-console.log(`Side One ${ sideOneTriangle } cm, side Two ${ sideTwoTriangle } cm, side Three ${ sideThreeTriangle} cm and Height ${ heightTriangle} cm`);
+function getSidesTriangleValue() {
+    const inputOne = document.getElementById("side-one-triangle");
+    const sideOneTriangle = inputOne.value;
+    const inputTwo = document.getElementById("side-two-triangle");
+    const sideTwoTriangle = inputTwo.value;
+    const inputThree = document.getElementById("side-three-triangle");
+    const sideThreeTriangle = inputThree.value;
+    return { sideOneTriangle, sideTwoTriangle, sideThreeTriangle };
+}
 
 function perimeterTriangle(sideOneTriangle,sideTwoTriangle,sideThreeTriangle) {
-    return sideOneTriangle + sideTwoTriangle + sideThreeTriangle;
+    return parseInt(sideOneTriangle) + parseInt(sideTwoTriangle) + parseInt(sideThreeTriangle);
 }
-console.log(`Perimeter of the triangle is ${ perimeterTriangle(sideOneTriangle,sideTwoTriangle,sideThreeTriangle) } cm`);
 
-function areaTriangle(sideThreeTriangle,heightTriangle) {
-    return (sideThreeTriangle * heightTriangle) / 2;
+function areaTriangle(sideOneTriangle,sideTwoTriangle,sideThreeTriangle) {
+    const sVaule = perimeterTriangle(sideOneTriangle,sideTwoTriangle,sideThreeTriangle) / 2;
+    return Math.sqrt(sVaule*(sVaule-sideOneTriangle)*(sVaule-sideTwoTriangle)*(sVaule-sideThreeTriangle)).toFixed(2);
 }
-console.log(`Area of the square is ${ areaTriangle(sideThreeTriangle,heightTriangle) } cm^2`);
 
-console.groupEnd();
+function calculatePerimeterTriangle() {
+    const sides = getSidesTriangleValue();
+    alert(`Perimeter of the triangle is ${ perimeterTriangle(sides.sideOneTriangle,sides.sideTwoTriangle,sides.sideThreeTriangle) } cm`);
+}
+
+function calculateAreaTriangle() {
+    const sides = getSidesTriangleValue();
+    alert(`Area of the square is ${ areaTriangle(sides.sideOneTriangle,sides.sideTwoTriangle,sides.sideThreeTriangle) } cm^2`);
+}
+
 /*
  * Circle
 */
-console.group("Circle");
-
 const pi = Math.PI;
-const radiusCircle = 6;
+
+function getRadiusCircleValue() {
+    const input = document.getElementById("radio");
+    return input.value;
+}
 
 function diameterCircle(radiusCircle) {
     return radiusCircle * 2;
 }
-console.log(`Diameter of circle is ${ diameterCircle(radiusCircle) } cm`);
 
-const diameterCircleValue = diameterCircle(radiusCircle);
 function circunferenceCircle(diameterCircleValue,pi) {
-    return diameterCircleValue * pi;
+    return (diameterCircleValue * pi).toFixed(2);
 }
-console.log(`Circunference of the circle is ${ circunferenceCircle(diameterCircleValue,pi) } cm`);
 
 function areaCircle(radiusCircle,pi) {
-    return (radiusCircle * radiusCircle) * pi;
+    return ((radiusCircle * radiusCircle) * pi).toFixed(2);
 }
-console.log(`Area of circle is ${ areaCircle(radiusCircle,pi) } cm^2`);
 
-console.groupEnd();
+function calculateCircunferenceCircle() {
+    const radiusCircle = getRadiusCircleValue();
+    const diameterCircleValue = diameterCircle(radiusCircle);
+    alert (`Circunference of the circle is ${ circunferenceCircle(diameterCircleValue,pi) } cm`);
+}
+
+function calculateAreaCircle() {
+    const radiusCircle = getRadiusCircleValue();
+    alert (`Area of circle is ${ areaCircle(radiusCircle,pi) } cm^2`);
+}

@@ -7,7 +7,52 @@
     <title>Geometric forms</title>
 </head>
 <body>
-    <h1>Geometric forms</h1>
+    <div class="container">
+        <header>
+            <h1>Geometric forms</h1>
+        </header>
+        <section>
+            <header><h2>Square</h2></header>
+            <div>
+                <form action="">
+                    <div>
+                        <label for="side-square">Side square</label><input type="number" name="side-square" id="side-square">
+                    </div>
+                    <div>
+                        <button type="button" onclick="calculatePerimeterSquare()">calc perimeter</button> <button type="button" onclick="calculateAreaSquare()">calc area</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section>
+            <header>
+                <h2>Triangle</h2>
+            </header>
+            <div>
+                <form action="">
+                    <div><label for="side-one-triangle">Side One</label><input type="number" name="side-one-triangle" id="side-one-triangle"></div>
+                    <div><label for="side-two-triangle">Side Two</label><input type="number" name="side-two-triangle" id="side-two-triangle"></div>
+                    <div><label for="side-three-triangle">Side Three</label><input type="number" name="side-three-triangle" id="side-three-triangle"></div>
+                    <div>
+                        <button type="button" onclick="calculatePerimeterTriangle()">calc perimeter</button> <button type="button" onclick="calculateAreaTriangle()">calc area</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section>
+            <header>
+                <h2>Circle</h2>
+            </header>
+            <div>
+                <form action="">
+                    <div><label for="radio">Radio</label><input type="number" id="radio" name="radio"></div>
+                    <div>
+                        <button type="button" onclick="calculateCircunferenceCircle()">calc circunference</button> <button type="button" onclick="calculateAreaCircle()">calc area</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
     
 
     <script src="./geometric-forms.js"></script>
